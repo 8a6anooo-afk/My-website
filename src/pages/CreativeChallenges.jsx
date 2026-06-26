@@ -84,24 +84,24 @@ const challenges = [
 const severityConfig = {
   critical: { label: 'CRITICAL', bg: '#FEF2F2', color: '#DC2626', border: '#FECACA' },
   high: { label: 'HIGH', bg: '#FFF7ED', color: '#EA580C', border: '#FED7AA' },
-  medium: { label: 'MEDIUM', bg: '#EDE9FA', color: '#6C4FE0', border: '#C4B7F9' },
+  medium: { label: 'MEDIUM', bg: 'var(--cs-lilac)', color: 'var(--cs-violet)', border: 'color-mix(in srgb, var(--cs-violet) 35%, white)' },
 }
 
 export default function CreativeChallenges() {
   return (
     <div className="max-w-screen-xl mx-auto px-6 py-16">
       <Reveal>
-        <p className="text-[10px] tracking-[0.2em] uppercase font-medium mb-3" style={{ color: '#6C4FE0' }}>CREATIVE CHALLENGES</p>
-        <h1 className="text-5xl lg:text-6xl font-light leading-tight mb-4" style={{ fontFamily: 'Fraunces, Georgia, serif', color: '#14141A' }}>
+        <p className="text-[10px] tracking-[0.2em] uppercase font-medium mb-3" style={{ color: 'var(--cs-violet)' }}>CREATIVE CHALLENGES</p>
+        <h1 className="text-5xl lg:text-6xl font-light leading-tight mb-4" style={{ fontFamily: 'Fraunces, Georgia, serif', color: 'var(--cs-ink)' }}>
           Tensions &<br />Uncertainties
         </h1>
-        <p className="text-base max-w-2xl" style={{ color: '#6B6B72' }}>
+        <p className="text-base max-w-2xl" style={{ color: 'var(--cs-soft)' }}>
           Five major challenge domains identified through participant interviews and survey open-text responses.
           Each card presents the challenge, a representative quote, and an impact assessment.
         </p>
       </Reveal>
 
-      <div className="mt-12" style={{ height: '1px', background: '#E7E3DC' }}></div>
+      <div className="mt-12" style={{ height: '1px', background: 'var(--cs-hairline)' }}></div>
 
       <div className="mt-10 grid lg:grid-cols-2 gap-6">
         {challenges.map((c, i) => {
@@ -110,19 +110,19 @@ export default function CreativeChallenges() {
             <Reveal key={c.title} delay={i * 90} className={c.severity === 'critical' ? 'lg:col-span-2' : ''}>
               <div
                 className="rounded-2xl p-7 h-full transition-all duration-200 hover:scale-[1.01]"
-                style={{ border: '1px solid #E7E3DC', background: '#FDFCFA' }}
+                style={{ border: '1px solid var(--cs-hairline)', background: 'var(--cs-bg)' }}
               >
                 <div className="flex items-start justify-between mb-5 gap-4">
                   <div className="flex items-center gap-3">
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
-                      style={{ background: '#EDE9FA', color: '#6C4FE0' }}
+                      style={{ background: 'var(--cs-lilac)', color: 'var(--cs-violet)' }}
                     >
                       {c.icon}
                     </div>
                     <div>
-                      <p className="text-[9px] tracking-[0.2em] uppercase font-medium mb-0.5" style={{ color: '#6C4FE0' }}>{c.tag}</p>
-                      <h3 className="text-xl font-light" style={{ fontFamily: 'Fraunces, Georgia, serif', color: '#14141A' }}>{c.title}</h3>
+                      <p className="text-[9px] tracking-[0.2em] uppercase font-medium mb-0.5" style={{ color: 'var(--cs-violet)' }}>{c.tag}</p>
+                      <h3 className="text-xl font-light" style={{ fontFamily: 'Fraunces, Georgia, serif', color: 'var(--cs-ink)' }}>{c.title}</h3>
                     </div>
                   </div>
                   <span
@@ -133,11 +133,11 @@ export default function CreativeChallenges() {
                   </span>
                 </div>
 
-                <p className="text-sm leading-relaxed mb-5" style={{ color: '#6B6B72' }}>{c.body}</p>
+                <p className="text-sm leading-relaxed mb-5" style={{ color: 'var(--cs-soft)' }}>{c.body}</p>
 
                 <blockquote
                   className="rounded-xl p-4 text-sm leading-relaxed"
-                  style={{ background: '#F8F6F1', borderLeft: '3px solid #6C4FE0', color: '#14141A', fontStyle: 'italic' }}
+                  style={{ background: 'var(--cs-bg)', borderLeft: '3px solid var(--cs-violet)', color: 'var(--cs-ink)', fontStyle: 'italic' }}
                 >
                   {c.quote}
                 </blockquote>
@@ -151,10 +151,10 @@ export default function CreativeChallenges() {
       <Reveal delay={100}>
         <div
           className="mt-10 rounded-2xl p-8 grid md:grid-cols-3 gap-6"
-          style={{ background: 'linear-gradient(145deg, #0E0E10, #1B1B20)' }}
+          style={{ background: 'linear-gradient(145deg, var(--cs-dark0), var(--cs-dark1))' }}
         >
           <div className="md:col-span-3">
-            <p className="text-[10px] tracking-[0.2em] uppercase font-medium mb-3" style={{ color: '#8B6FF0' }}>THEORETICAL LENS</p>
+            <p className="text-[10px] tracking-[0.2em] uppercase font-medium mb-3" style={{ color: 'color-mix(in srgb, var(--cs-violet) 75%, white)' }}>THEORETICAL LENS</p>
             <h3 className="text-2xl font-light mb-4" style={{ fontFamily: 'Fraunces, Georgia, serif', color: 'white' }}>
               The Systems Model Under Strain
             </h3>
@@ -165,7 +165,7 @@ export default function CreativeChallenges() {
             { key: 'Field', text: 'Gatekeepers (clients, agencies, institutions) lack frameworks to judge AI-assisted creativity, creating validation uncertainty.' },
           ].map(item => (
             <div key={item.key}>
-              <p className="text-xs font-medium mb-2" style={{ color: '#6FCF4E' }}>{item.key}</p>
+              <p className="text-xs font-medium mb-2" style={{ color: 'var(--cs-lime)' }}>{item.key}</p>
               <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>{item.text}</p>
             </div>
           ))}

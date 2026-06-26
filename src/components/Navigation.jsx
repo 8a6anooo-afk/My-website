@@ -92,9 +92,12 @@ export default function Navigation() {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? 'rgba(248,246,241,0.92)' : '#F8F6F1',
+        background: scrolled
+          ? 'color-mix(in srgb, var(--cs-bg) 92%, transparent)'
+          : 'var(--cs-bg)',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: `1px solid ${scrolled ? '#E7E3DC' : 'transparent'}`,
+        borderBottom: `1px solid ${scrolled ? 'var(--cs-hairline)' : 'transparent'}`,
+        transition: 'background 0.25s, border-color 0.25s',
       }}
     >
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
@@ -102,22 +105,22 @@ export default function Navigation() {
         <NavLink to="/" className="flex items-center gap-2.5 shrink-0">
           <div
             className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0"
-            style={{ background: 'linear-gradient(135deg,#6C4FE0,#8B6FF0)' }}
+            style={{ background: 'linear-gradient(135deg, var(--cs-violet), color-mix(in srgb, var(--cs-violet) 70%, white))' }}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M3 8c0-2.76 2.24-5 5-5 1.5 0 2.84.66 3.77 1.7" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-              <circle cx="11" cy="6.5" r="1.5" fill="#6FCF4E"/>
+              <circle cx="11" cy="6.5" r="1.5" fill="var(--cs-lime)"/>
               <path d="M13 8c0 2.76-2.24 5-5 5-1.5 0-2.84-.66-3.77-1.7" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
               <circle cx="5" cy="9.5" r="1.5" fill="white" fillOpacity="0.7"/>
             </svg>
           </div>
           <div className="leading-tight">
-            <div className="font-semibold text-sm tracking-tight" style={{ color: '#14141A', fontFamily: 'Inter, sans-serif' }}>
+            <div className="font-semibold text-sm tracking-tight" style={{ color: 'var(--cs-ink)', fontFamily: 'Inter, sans-serif' }}>
               Creative Space
             </div>
             <div className="flex items-center gap-1">
-              <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#6FCF4E' }}></div>
-              <span className="text-[10px] tracking-wide" style={{ color: '#6B6B72' }}>VOICES OF BAHRAINI DESIGNERS</span>
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--cs-lime)' }}></div>
+              <span className="text-[10px] tracking-wide" style={{ color: 'var(--cs-soft)' }}>VOICES OF BAHRAINI DESIGNERS</span>
             </div>
           </div>
         </NavLink>
@@ -131,14 +134,12 @@ export default function Navigation() {
               end={to === '/'}
               className={({ isActive }) =>
                 `flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] tracking-widest transition-all duration-200 ${
-                  isActive
-                    ? 'font-medium'
-                    : 'hover:bg-black/5'
+                  isActive ? 'font-medium' : 'hover:bg-black/5'
                 }`
               }
               style={({ isActive }) => ({
-                background: isActive ? '#EDE9FA' : undefined,
-                color: isActive ? '#6C4FE0' : '#6B6B72',
+                background: isActive ? 'var(--cs-lilac)' : undefined,
+                color: isActive ? 'var(--cs-violet)' : 'var(--cs-soft)',
               })}
             >
               <Icon />
@@ -151,29 +152,26 @@ export default function Navigation() {
         <div className="flex items-center gap-2">
           <NavLink
             to="/identity"
-            className={({ isActive }) =>
-              `hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[10px] tracking-widest font-medium transition-all duration-200 border`
-            }
+            className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[10px] tracking-widest font-medium transition-all duration-200 border"
             style={({ isActive }) => ({
-              background: isActive ? '#6C4FE0' : 'transparent',
-              color: isActive ? 'white' : '#6C4FE0',
-              borderColor: '#6C4FE0',
+              background: isActive ? 'var(--cs-violet)' : 'transparent',
+              color: isActive ? 'white' : 'var(--cs-violet)',
+              borderColor: 'var(--cs-violet)',
             })}
           >
             <PaletteIcon />
             IDENTITY
           </NavLink>
 
-          {/* Mobile menu button */}
           <button
             className="xl:hidden p-2 rounded-lg transition-colors hover:bg-black/5"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
             <div className="w-5 flex flex-col gap-1">
-              <span className={`block h-0.5 bg-current transition-all duration-200 ${mobileOpen ? 'rotate-45 translate-y-1.5' : ''}`} style={{ color: '#14141A' }}></span>
-              <span className={`block h-0.5 bg-current transition-all duration-200 ${mobileOpen ? 'opacity-0' : ''}`} style={{ color: '#14141A' }}></span>
-              <span className={`block h-0.5 bg-current transition-all duration-200 ${mobileOpen ? '-rotate-45 -translate-y-1.5' : ''}`} style={{ color: '#14141A' }}></span>
+              <span className={`block h-0.5 transition-all duration-200 ${mobileOpen ? 'rotate-45 translate-y-1.5' : ''}`} style={{ background: 'var(--cs-ink)' }}></span>
+              <span className={`block h-0.5 transition-all duration-200 ${mobileOpen ? 'opacity-0' : ''}`} style={{ background: 'var(--cs-ink)' }}></span>
+              <span className={`block h-0.5 transition-all duration-200 ${mobileOpen ? '-rotate-45 -translate-y-1.5' : ''}`} style={{ background: 'var(--cs-ink)' }}></span>
             </div>
           </button>
         </div>
@@ -183,19 +181,17 @@ export default function Navigation() {
       {mobileOpen && (
         <div
           className="xl:hidden border-t px-4 py-3 flex flex-col gap-1"
-          style={{ background: '#F8F6F1', borderColor: '#E7E3DC' }}
+          style={{ background: 'var(--cs-bg)', borderColor: 'var(--cs-hairline)' }}
         >
           {[...navItems, { to: '/identity', label: 'IDENTITY', icon: PaletteIcon }].map(({ to, label, icon: Icon }) => (
             <NavLink
               key={to}
               to={to}
               end={to === '/'}
-              className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-2 rounded-xl text-[11px] tracking-widest transition-all`
-              }
+              className="flex items-center gap-2 px-3 py-2 rounded-xl text-[11px] tracking-widest transition-all"
               style={({ isActive }) => ({
-                background: isActive ? '#EDE9FA' : 'transparent',
-                color: isActive ? '#6C4FE0' : '#6B6B72',
+                background: isActive ? 'var(--cs-lilac)' : 'transparent',
+                color: isActive ? 'var(--cs-violet)' : 'var(--cs-soft)',
               })}
             >
               <Icon />

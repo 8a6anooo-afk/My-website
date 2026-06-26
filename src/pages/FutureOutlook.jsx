@@ -45,16 +45,16 @@ const quotes = [
 ]
 
 const sentimentConfig = {
-  optimistic: { color: '#6FCF4E', bg: '#F0FAE8', label: 'Optimistic' },
+  optimistic: { color: 'var(--cs-lime)', bg: '#F0FAE8', label: 'Optimistic' },
   cautious: { color: '#E07A4F', bg: '#FEF5F0', label: 'Cautious' },
-  grounded: { color: '#6C4FE0', bg: '#EDE9FA', label: 'Grounded' },
+  grounded: { color: 'var(--cs-violet)', bg: 'var(--cs-lilac)', label: 'Grounded' },
 }
 
 const themes = [
-  { pct: 64, label: 'AI as creative collaborator (augmentation)', color: '#6C4FE0' },
+  { pct: 64, label: 'AI as creative collaborator (augmentation)', color: 'var(--cs-violet)' },
   { pct: 18, label: 'AI as existential threat to craft', color: '#E07A4F' },
-  { pct: 12, label: 'AI as neutral tool (depends on user)', color: '#6B6B72' },
-  { pct: 6, label: 'No clear view / undecided', color: '#E7E3DC' },
+  { pct: 12, label: 'AI as neutral tool (depends on user)', color: 'var(--cs-soft)' },
+  { pct: 6, label: 'No clear view / undecided', color: 'var(--cs-hairline)' },
 ]
 
 const visionPillars = [
@@ -94,12 +94,12 @@ function TimelineNode({ year, title, desc, accent, delay }) {
         <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-xs font-semibold" style={{ background: accent, color: 'white' }}>
           {year.slice(2)}
         </div>
-        <div className="flex-1 w-px mt-2" style={{ background: '#E7E3DC' }}></div>
+        <div className="flex-1 w-px mt-2" style={{ background: 'var(--cs-hairline)' }}></div>
       </div>
       <div className="pb-8">
         <p className="text-xs font-medium mb-0.5" style={{ color: accent }}>{year}</p>
-        <h4 className="text-lg font-light mb-1" style={{ fontFamily: 'Fraunces, Georgia, serif', color: '#14141A' }}>{title}</h4>
-        <p className="text-sm leading-relaxed" style={{ color: '#6B6B72' }}>{desc}</p>
+        <h4 className="text-lg font-light mb-1" style={{ fontFamily: 'Fraunces, Georgia, serif', color: 'var(--cs-ink)' }}>{title}</h4>
+        <p className="text-sm leading-relaxed" style={{ color: 'var(--cs-soft)' }}>{desc}</p>
       </div>
     </div>
   )
@@ -111,11 +111,11 @@ export default function FutureOutlook() {
   return (
     <div className="max-w-screen-xl mx-auto px-6 py-16">
       <Reveal>
-        <p className="text-[10px] tracking-[0.2em] uppercase font-medium mb-3" style={{ color: '#6C4FE0' }}>FUTURE OUTLOOK</p>
-        <h1 className="text-5xl lg:text-6xl font-light leading-tight mb-4" style={{ fontFamily: 'Fraunces, Georgia, serif', color: '#14141A' }}>
+        <p className="text-[10px] tracking-[0.2em] uppercase font-medium mb-3" style={{ color: 'var(--cs-violet)' }}>FUTURE OUTLOOK</p>
+        <h1 className="text-5xl lg:text-6xl font-light leading-tight mb-4" style={{ fontFamily: 'Fraunces, Georgia, serif', color: 'var(--cs-ink)' }}>
           Designing the<br />Next Decade
         </h1>
-        <p className="text-base max-w-2xl" style={{ color: '#6B6B72' }}>
+        <p className="text-base max-w-2xl" style={{ color: 'var(--cs-soft)' }}>
           Participant perspectives on AI's role in Bahrain's creative economy over the next ten years —
           tied to Bahrain Vision 2030 and wider Gulf creative sector ambitions.
         </p>
@@ -123,18 +123,18 @@ export default function FutureOutlook() {
 
       {/* Sentiment Themes */}
       <Reveal delay={100}>
-        <div className="mt-12 rounded-2xl p-7" style={{ border: '1px solid #E7E3DC', background: '#FDFCFA' }}>
-          <p className="text-[10px] tracking-[0.2em] uppercase font-medium mb-5" style={{ color: '#6C4FE0' }}>
+        <div className="mt-12 rounded-2xl p-7" style={{ border: '1px solid var(--cs-hairline)', background: 'var(--cs-bg)' }}>
+          <p className="text-[10px] tracking-[0.2em] uppercase font-medium mb-5" style={{ color: 'var(--cs-violet)' }}>
             HOW PARTICIPANTS VIEW AI'S FUTURE
           </p>
           <div className="space-y-3">
             {themes.map((t) => (
               <div key={t.label}>
                 <div className="flex justify-between text-sm mb-1">
-                  <span style={{ color: '#14141A' }}>{t.label}</span>
+                  <span style={{ color: 'var(--cs-ink)' }}>{t.label}</span>
                   <span className="font-medium" style={{ color: t.color }}>{t.pct}%</span>
                 </div>
-                <div className="h-2 rounded-full overflow-hidden" style={{ background: '#E7E3DC' }}>
+                <div className="h-2 rounded-full overflow-hidden" style={{ background: 'var(--cs-hairline)' }}>
                   <div
                     className="h-full rounded-full transition-all duration-700"
                     style={{ width: `${t.pct}%`, background: t.color }}
@@ -148,12 +148,12 @@ export default function FutureOutlook() {
 
       {/* Quote carousel */}
       <Reveal delay={50}>
-        <div className="mt-10" style={{ height: '1px', background: '#E7E3DC' }}></div>
-        <p className="text-[10px] tracking-[0.2em] uppercase font-medium mt-8 mb-6" style={{ color: '#6C4FE0' }}>PARTICIPANT VOICES</p>
+        <div className="mt-10" style={{ height: '1px', background: 'var(--cs-hairline)' }}></div>
+        <p className="text-[10px] tracking-[0.2em] uppercase font-medium mt-8 mb-6" style={{ color: 'var(--cs-violet)' }}>PARTICIPANT VOICES</p>
       </Reveal>
 
       <Reveal delay={80}>
-        <div className="rounded-2xl overflow-hidden" style={{ background: 'linear-gradient(145deg, #0E0E10, #1B1B20)' }}>
+        <div className="rounded-2xl overflow-hidden" style={{ background: 'linear-gradient(145deg, var(--cs-dark0), var(--cs-dark1))' }}>
           <div className="p-8 lg:p-10">
             <div
               className="text-3xl font-light leading-snug mb-6 transition-all duration-500"
@@ -187,8 +187,8 @@ export default function FutureOutlook() {
                 onClick={() => setActive(i)}
                 className="flex-1 py-3 text-xs tracking-widest uppercase transition-all duration-200"
                 style={{
-                  background: active === i ? 'rgba(108,79,224,0.3)' : 'transparent',
-                  color: active === i ? '#A490F5' : 'rgba(255,255,255,0.3)',
+                  background: active === i ? 'color-mix(in srgb, var(--cs-violet) 30%, transparent)' : 'transparent',
+                  color: active === i ? 'color-mix(in srgb, var(--cs-violet) 55%, white)' : 'rgba(255,255,255,0.3)',
                   borderRight: i < quotes.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
                 }}
               >
@@ -201,9 +201,9 @@ export default function FutureOutlook() {
 
       {/* Vision 2030 Pillars */}
       <Reveal delay={50}>
-        <div className="mt-12" style={{ height: '1px', background: '#E7E3DC' }}></div>
-        <p className="text-[10px] tracking-[0.2em] uppercase font-medium mt-8 mb-2" style={{ color: '#6C4FE0' }}>BAHRAIN VISION 2030</p>
-        <h2 className="text-3xl font-light mb-8" style={{ fontFamily: 'Fraunces, Georgia, serif', color: '#14141A' }}>
+        <div className="mt-12" style={{ height: '1px', background: 'var(--cs-hairline)' }}></div>
+        <p className="text-[10px] tracking-[0.2em] uppercase font-medium mt-8 mb-2" style={{ color: 'var(--cs-violet)' }}>BAHRAIN VISION 2030</p>
+        <h2 className="text-3xl font-light mb-8" style={{ fontFamily: 'Fraunces, Georgia, serif', color: 'var(--cs-ink)' }}>
           Four Intersecting Pillars
         </h2>
       </Reveal>
@@ -213,11 +213,11 @@ export default function FutureOutlook() {
           <Reveal key={p.title} delay={i * 80}>
             <div
               className="rounded-2xl p-6 h-full transition-all duration-200 hover:scale-[1.02]"
-              style={{ border: '1px solid #E7E3DC', background: '#FDFCFA' }}
+              style={{ border: '1px solid var(--cs-hairline)', background: 'var(--cs-bg)' }}
             >
-              <span className="text-2xl mb-4 block" style={{ color: '#6C4FE0' }}>{p.icon}</span>
-              <h3 className="text-base font-medium mb-2" style={{ color: '#14141A' }}>{p.title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: '#6B6B72' }}>{p.body}</p>
+              <span className="text-2xl mb-4 block" style={{ color: 'var(--cs-violet)' }}>{p.icon}</span>
+              <h3 className="text-base font-medium mb-2" style={{ color: 'var(--cs-ink)' }}>{p.title}</h3>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--cs-soft)' }}>{p.body}</p>
             </div>
           </Reveal>
         ))}
@@ -225,15 +225,15 @@ export default function FutureOutlook() {
 
       {/* Timeline */}
       <Reveal>
-        <div className="mt-12" style={{ height: '1px', background: '#E7E3DC' }}></div>
-        <p className="text-[10px] tracking-[0.2em] uppercase font-medium mt-8 mb-8" style={{ color: '#6C4FE0' }}>PROJECTED TRAJECTORY</p>
+        <div className="mt-12" style={{ height: '1px', background: 'var(--cs-hairline)' }}></div>
+        <p className="text-[10px] tracking-[0.2em] uppercase font-medium mt-8 mb-8" style={{ color: 'var(--cs-violet)' }}>PROJECTED TRAJECTORY</p>
       </Reveal>
 
       <div className="max-w-2xl">
-        <TimelineNode year="2026" title="Curriculum Integration" desc="AI literacy enters Bahraini design education at polytechnic and university level as standard module." accent="#6C4FE0" delay={0} />
-        <TimelineNode year="2027" title="Regulatory Clarity" desc="First regional guidelines on AI-generated content ownership and client disclosure obligations published." accent="#8B6FF0" delay={100} />
-        <TimelineNode year="2028" title="Gulf Creative AI Hub" desc="Bahrain positions itself as a regional leader in AI-augmented design, attracting international studios." accent="#A490F5" delay={200} />
-        <TimelineNode year="2030" title="Vision 2030 Milestone" desc="Creative industries contribute measurably to diversified GDP; Bahraini AI-design practitioners recognised regionally." accent="#6FCF4E" delay={300} />
+        <TimelineNode year="2026" title="Curriculum Integration" desc="AI literacy enters Bahraini design education at polytechnic and university level as standard module." accent="var(--cs-violet)" delay={0} />
+        <TimelineNode year="2027" title="Regulatory Clarity" desc="First regional guidelines on AI-generated content ownership and client disclosure obligations published." accent="color-mix(in srgb, var(--cs-violet) 75%, white)" delay={100} />
+        <TimelineNode year="2028" title="Gulf Creative AI Hub" desc="Bahrain positions itself as a regional leader in AI-augmented design, attracting international studios." accent="color-mix(in srgb, var(--cs-violet) 55%, white)" delay={200} />
+        <TimelineNode year="2030" title="Vision 2030 Milestone" desc="Creative industries contribute measurably to diversified GDP; Bahraini AI-design practitioners recognised regionally." accent="var(--cs-lime)" delay={300} />
       </div>
     </div>
   )

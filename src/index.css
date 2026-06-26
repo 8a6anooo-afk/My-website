@@ -23,13 +23,27 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Runtime theme variables — defaults here, overridden by ThemeContext on :root */
+:root {
+  --cs-bg:       #F8F6F1;
+  --cs-ink:      #14141A;
+  --cs-soft:     #6B6B72;
+  --cs-violet:   #6C4FE0;
+  --cs-lilac:    #EDE9FA;
+  --cs-lime:     #6FCF4E;
+  --cs-hairline: #E7E3DC;
+  --cs-dark0:    #0E0E10;
+  --cs-dark1:    #1B1B20;
+}
+
 body {
   margin: 0;
-  background-color: #F8F6F1;
-  color: #14141A;
+  background-color: var(--cs-bg);
+  color: var(--cs-ink);
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 #root {
