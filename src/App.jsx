@@ -10,27 +10,36 @@ import CreativeChallenges from './pages/CreativeChallenges'
 import FutureOutlook from './pages/FutureOutlook'
 import ShowcasePortfolio from './pages/ShowcasePortfolio'
 import Identity from './pages/Identity'
+import JetHero from './pages/JetHero'
 
 export default function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="min-h-screen flex flex-col" style={{ background: 'var(--cs-bg, #F8F6F1)' }}>
-          <Navigation />
-          <main className="flex-1 pt-20">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/quantitative" element={<QuantitativeData />} />
-              <Route path="/before-after" element={<BeforeAfter />} />
-              <Route path="/challenges" element={<CreativeChallenges />} />
-              <Route path="/future" element={<FutureOutlook />} />
-              <Route path="/portfolio" element={<ShowcasePortfolio />} />
-              <Route path="/identity" element={<Identity />} />
-            </Routes>
-          </main>
-          <Footer />
-          <ColorPanel />
-        </div>
+        <Routes>
+          {/* Standalone page — no shared nav/footer */}
+          <Route path="/jet" element={<JetHero />} />
+
+          {/* Main research site */}
+          <Route path="*" element={
+            <div className="min-h-screen flex flex-col" style={{ background: 'var(--cs-bg, #F8F6F1)' }}>
+              <Navigation />
+              <main className="flex-1 pt-20">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/quantitative" element={<QuantitativeData />} />
+                  <Route path="/before-after" element={<BeforeAfter />} />
+                  <Route path="/challenges" element={<CreativeChallenges />} />
+                  <Route path="/future" element={<FutureOutlook />} />
+                  <Route path="/portfolio" element={<ShowcasePortfolio />} />
+                  <Route path="/identity" element={<Identity />} />
+                </Routes>
+              </main>
+              <Footer />
+              <ColorPanel />
+            </div>
+          } />
+        </Routes>
       </Router>
     </ThemeProvider>
   )
